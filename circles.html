@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+
+            body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: black;
+            }
+            #container {
+                width: inherit;
+                height: inherit;
+                margin: 0;
+                padding: 0;
+                background-color: black;
+            }
+    </style>
+  </head>
+  <body>
+    <canvas id="container"></canvas>
+    <script>
+      var canvas = document.getElementById('container');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var context = canvas.getContext('2d');
+
+      for (i = 0; i < 500; i++) {
+        var centerX = Math.floor(Math.random() * canvas.width) + 1;
+        var centerY = Math.floor(Math.random() * canvas.height) + 1;
+        var radius = Math.floor(Math.random() * 5) + 3;
+        var color = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+        context.beginPath();
+        context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = color;
+        context.fill();
+        context.lineWidth = 1;
+        context.stroke();
+      }
+    </script>
+  </body>
+</html>      
